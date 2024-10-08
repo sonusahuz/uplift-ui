@@ -1,0 +1,36 @@
+.card {
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Ensure child elements stay within the card */
+  border: 1px solid gray;
+  padding: 10px;
+  margin: 10px;
+}
+
+.card-header {
+  padding: 16px; /* Padding for the header */
+  border-bottom: 1px solid #e0e0e0; /* Divider for the header */
+}
+
+.card-title {
+  margin: 0; /* Reset margin for title */
+  font-size: 1.5rem; /* Font size for title */
+  font-weight: bold; /* Make title bold */
+}
+
+.card-description {
+  font-size: 1rem; /* Font size for description */
+  color: #666; /* Color for description text */
+}
+
+.card-content {
+  padding: 16px; /* Padding for content */
+}
+
+.card-footer {
+  padding: 16px; /* Padding for footer */
+  border-top: 1px solid #e0e0e0; /* Divider for the footer */
+  display: flex; /* Flex layout for footer */
+  justify-content: space-between; /* Align items to the right */
+  align-items: center; /* Center align items */
+}

@@ -1,0 +1,57 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center; /* Center the dialog */
+  backdrop-filter: blur(5px); /* Blur the background */
+  z-index: 1000; /* Ensure it appears above other content */
+}
+
+.alert-dialog {
+  background: white; /* White background for the dialog */
+  padding: 2rem; /* Padding for the dialog */
+  border-radius: 0.5rem; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  width: 300px; /* Fixed width for the dialog */
+  text-align: center; /* Center text */
+  width: 500px; /* Fixed width for the dialog */
+  margin: 0px 5px;
+}
+
+.alert-dialog-title {
+  font-size: 1.5rem; /* Title font size */
+  margin-bottom: 1rem; /* Margin below title */
+}
+
+.alert-dialog-description {
+  font-size: 1rem; /* Description font size */
+  margin-bottom: 1.5rem; /* Margin below description */
+}
+
+.alert-dialog-actions {
+  display: flex;
+  justify-content: space-between; /* Space between buttons */
+}
+
+.btn {
+  padding: 0.5rem 1rem; /* Padding for buttons */
+  border: none; /* No border */
+  border-radius: 0.25rem; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+.btn.cancel {
+  background-color: #e0e7ff; /* Light blue for cancel */
+  color: #1e40af; /* Dark blue text */
+}
+
+.btn.ok {
+  background-color: #3b82f6; /* Blue for OK */
+  color: white; /* White text */
+}

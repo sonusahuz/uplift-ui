@@ -1,0 +1,65 @@
+.alert {
+  display: flex;
+  justify-content: space-between; /* Aligns the content and close button */
+  align-items: center; /* Center aligns the content */
+  padding: 0.5rem 1rem; /* Default padding */
+  border-radius: 0.375rem; /* Rounded corners */
+  margin: 1rem 0; /* Margin between alerts */
+}
+
+.alert.default {
+  background-color: #e0e7ff; /* Light blue */
+  color: #1e40af; /* Dark blue */
+  border: 1px solid #bfdbfe; /* Border color */
+}
+
+.alert.success {
+  background-color: #d1fae5; /* Light green */
+  color: #065f46; /* Dark green */
+  border: 1px solid #bbf7d0; /* Border color */
+}
+
+.alert.secondary {
+  background-color: rgb(0, 0, 0, 0.8); /* Light red */
+  color: #fff; /* Dark red */
+  border: 1px solid black; /* Border color */
+}
+.alert.error {
+  background-color: #fee2e2; /* Light red */
+  color: #b91c1c; /* Dark red */
+  border: 1px solid #fca5a5; /* Border color */
+}
+
+.alert.warning {
+  background-color: #ffedd5; /* Light yellow */
+  color: #92400e; /* Dark yellow */
+  border: 1px solid #fbbf24; /* Border color */
+}
+
+.alert.info {
+  background-color: #e0f2fe; /* Light cyan */
+  color: #0d9488; /* Dark cyan */
+  border: 1px solid #90e0ef; /* Border color */
+}
+
+.alert.default,
+.alert.sm {
+  font-size: 0.875rem; /* Text size for default */
+}
+
+.alert.sm {
+  padding: 0.25rem 0.5rem; /* Smaller padding */
+}
+
+.alert.lg {
+  font-size: 1rem; /* Text size for large */
+  padding: 0.75rem 1.5rem; /* Larger padding */
+}
+
+.alert-close {
+  background: none; /* No background */
+  border: none; /* No border */
+  color: inherit; /* Inherit text color */
+  font-size: 1.25rem; /* Font size for close button */
+  cursor: pointer; /* Pointer cursor on hover */
+}

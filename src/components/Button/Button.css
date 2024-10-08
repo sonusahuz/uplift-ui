@@ -1,0 +1,76 @@
+.button {
+  border-radius: 5px;
+  font-weight: 400;
+  outline: none;
+  transition: background-color 0.2s ease-in-out;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.button.default {
+  background-color: black; /* gray-300 */
+  color: #fff; /* black */
+}
+
+.button.primary {
+  background-color: #3b82f6; /* blue-500 */
+  color: #fff;
+}
+
+.button.primary:hover {
+  background-color: #2563eb; /* blue-600 */
+}
+
+.button.secondary {
+  background-color: rgb(210, 210, 210); /* green-500 */
+  color: black;
+}
+
+.button.secondary:hover {
+  background-color: rgb(101, 99, 99); /* green-500 */
+}
+
+.button.destructive {
+  background-color: #ef4444; /* red-500 */
+  color: #fff;
+}
+
+.button.destructive:hover {
+  background-color: #dc2626; /* red-600 */
+}
+
+.button.outline {
+  background-color: transparent;
+  border: none;
+  color: #000; /* blue-500 */
+}
+
+.button.default,
+.button.small {
+  height: 2.5rem; /* h-10 */
+  padding: 0 1rem; /* px-4 */
+}
+
+.button.small {
+  height: 2.25rem; /* h-9 */
+  padding: 0 0.75rem; /* px-3 */
+}
+
+.button.medium {
+  height: 2.5rem; /* h-10 */
+  padding: 0 1rem; /* px-4 */
+}
+
+.button.large {
+  height: 2.75rem; /* h-11 */
+  padding: 0 2rem; /* px-8 */
+}
+
+.button.icon {
+  height: 2.5rem; /* h-10 */
+  width: 2.5rem; /* w-10 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

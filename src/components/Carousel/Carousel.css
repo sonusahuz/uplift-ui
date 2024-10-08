@@ -1,0 +1,52 @@
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  max-width: 600px; /* Adjust as needed */
+  margin: auto;
+  overflow: hidden;
+}
+
+.carousel-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease;
+}
+
+.carousel img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px; /* Optional: add some border radius */
+}
+
+.carousel-button {
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 24px;
+  padding: 10px;
+  width: 250px;
+  position: absolute;
+  color: black;
+  z-index: 10;
+}
+
+.carousel-button.left {
+  left: -100px;
+  margin-bottom: 25px;
+  cursor: pointer;
+}
+
+.carousel-button.right {
+  right: -100px;
+  margin-bottom: 25px;
+  cursor: pointer;
+}
+
+.carousel-title {
+  padding-top: 10px;
+}

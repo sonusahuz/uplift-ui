@@ -1,0 +1,71 @@
+/* Base loader styles */
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid black;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+/* Size variants */
+.loader.small {
+  width: 35px;
+  height: 35px;
+  border-width: 5px;
+}
+
+.loader.medium {
+  width: 45px;
+  height: 45px;
+  border-width: 5px;
+}
+
+.loader.large {
+  width: 65px;
+  height: 65px;
+  border-width: 5px;
+}
+
+.loader.xlarge {
+  width: 80px;
+  height: 80px;
+  border-width: 5px;
+}
+
+/* Color variants */
+.loader.blue {
+  border-color: #2563eb; /* Blue border */
+  border-bottom-color: transparent;
+}
+
+.loader.red {
+  border-color: #ef4444; /* Red border */
+  border-bottom-color: transparent;
+}
+
+.loader.green {
+  border-color: #22c55e; /* Green border */
+  border-bottom-color: transparent;
+}
+
+.loader.gray {
+  border-color: #6b7280; /* Gray border */
+  border-bottom-color: transparent;
+}
+
+.loader.purple {
+  border-color: #a855f7; /* Gray border */
+  border-bottom-color: transparent;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

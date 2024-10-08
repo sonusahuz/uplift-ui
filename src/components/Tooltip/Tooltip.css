@@ -1,0 +1,17 @@
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip {
+  position: absolute;
+  background: black;
+  color: white;
+  padding: 5px;
+  border-radius: 4px;
+  top: -30px; /* Position above the element */
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 12px;
+}

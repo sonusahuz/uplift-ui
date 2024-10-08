@@ -1,0 +1,82 @@
+.badge {
+  border-radius: 50px;
+  font-weight: 400;
+  outline: none;
+  transition: background-color 0.2s ease-in-out;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.badge.default {
+  background-color: black; /* gray-300 */
+  color: #fff; /* white */
+}
+
+.badge.primary {
+  background-color: #3b82f6; /* blue-500 */
+  color: #fff;
+}
+
+.badge.primary:hover {
+  background-color: #2563eb; /* blue-600 */
+}
+
+.badge.secondary {
+  background-color: rgb(210, 210, 210); /* gray */
+  color: black;
+}
+
+.badge.secondary:hover {
+  background-color: rgb(101, 99, 99); /* darker gray */
+}
+
+.badge.destructive {
+  background-color: #ef4444; /* red-500 */
+  color: #fff;
+}
+
+.badge.destructive:hover {
+  background-color: #dc2626; /* red-600 */
+}
+
+.badge.outline {
+  color: black; /* gray-500 */
+  background-color: transparent;
+  border: none;
+}
+
+.badge.outline:hover {
+  background-color: #f3f4f6; /* gray-100 */
+}
+
+.badge.default,
+.badge.small {
+  padding: 2px 10px;
+}
+
+.badge.small {
+  padding: 5px 10px;
+}
+
+.badge.medium {
+  padding: 6px 10px; /* Padding for medium size */
+}
+
+.badge.large {
+  padding: 8px 20px;
+}
+
+.badge.circle {
+  border-radius: 50px;
+}
+
+.badge.rounded {
+  border-radius: 4px;
+}
+
+.badge.icon {
+  height: 2.5rem; /* h-10 */
+  width: 2.5rem; /* w-10 */
+  display: flex;
+}

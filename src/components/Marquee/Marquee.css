@@ -1,0 +1,50 @@
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  position: relative;
+}
+
+.marquee {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Marquee animation for left-to-right scrolling */
+@keyframes marquee-left {
+  0% {
+    transform: translateX(
+      0
+    ); /* Start at the same point (center of the container) */
+  }
+  100% {
+    transform: translateX(-100%); /* Move fully out of view to the left */
+  }
+}
+
+/* Marquee animation for right-to-left scrolling */
+@keyframes marquee-right {
+  0% {
+    transform: translateX(
+      0
+    ); /* Start at the same point (center of the container) */
+  }
+  100% {
+    transform: translateX(100%); /* Move fully out of view to the right */
+  }
+}
+
+.marquee-container.left .marquee {
+  animation: marquee-left linear infinite;
+}
+
+.marquee-container.right .marquee {
+  animation: marquee-right linear infinite;
+}
+
+/* Custom styling for image items */
+.marquee-item {
+  padding: 0 20px;
+  font-size: 20px;
+  width: auto;
+}

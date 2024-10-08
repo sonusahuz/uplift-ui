@@ -1,0 +1,10 @@
+.progress-bar {
+  transition: width 0.3s ease; /* Smooth transition for the width change */
+}
+
+.progress-container {
+  width: 100%;
+  background-color: #e5e7eb; /* Tailwind Gray-200 */
+  border-radius: 0.375rem; /* Tailwind Rounded */
+  overflow: hidden; /* Prevents overflow of the progress */
+}
