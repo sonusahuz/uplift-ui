@@ -1,15 +1,16 @@
 import React from 'react';
 import './Alert.css'; // Import the CSS file
 
-type AlertProps = {
-  variant?:
-    | 'default'
-    | 'secondary'
-    | 'success'
-    | 'error'
-    | 'warning'
-    | 'info'
-    | string;
+type AlertVariant =
+  | 'default'
+  | 'secondary'
+  | 'success'
+  | 'error'
+  | 'warning'
+  | 'info';
+
+type AlertProps = React.HTMLAttributes<HTMLDivElement> & {
+  variant?: AlertVariant;
   children: React.ReactNode; // Content to display
   onClose?: () => void; // Function to close the alert
   width?: string; // Width of the alert

@@ -1,5 +1,6 @@
 import React from 'react';
 import './Breadcrumb.css';
+import { Link } from 'react-router-dom';
 
 type BreadcrumbProps = {
   items: { label: string; href: string }[];
@@ -10,7 +11,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ items }) => {
     <nav className="breadcrumb">
       {items.map((item, index) => (
         <span key={item.href}>
-          <a href={item.href}>{item.label}</a>
+          <Link to={item.href}>{item.label}</Link>
           {index < items.length - 1 && ' > '}
         </span>
       ))}

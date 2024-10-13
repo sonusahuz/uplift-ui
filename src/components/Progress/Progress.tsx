@@ -1,3 +1,5 @@
+import React from 'react';
+import './Progress.css'; // Import the CSS file
 
 interface ProgressProps {
   value: number; // Current value of the progress
@@ -6,36 +8,21 @@ interface ProgressProps {
   color?: 'primary' | 'secondary' | 'success' | 'error' | 'warning' | 'info'; // Color of the progress bar
 }
 
-const Progress = ({
+const Progress: React.FC<ProgressProps> = ({
   value,
   max,
   size = 'medium',
   color = 'primary',
-}: ProgressProps) => {
+}) => {
   // Calculate the percentage of progress
   const percentage = Math.min((value / max) * 100, 100); // Clamp to a maximum of 100
 
-  const sizeClasses = {
-    small: 'h-2',
-    medium: 'h-4',
-    large: 'h-6',
-  };
-
-  const colorClasses = {
-    primary: 'bg-blue-600',
-    secondary: 'bg-gray-600',
-    success: 'bg-green-600',
-    error: 'bg-red-600',
-    warning: 'bg-yellow-600',
-    info: 'bg-teal-600',
-  };
+  // Combine class names for the progress bar
+  const progressBarClasses = `progress-bar ${size} ${color}`;
 
   return (
-    <div className="w-full overflow-hidden bg-gray-200 rounded">
-      <div
-        className={`${sizeClasses[size]} ${colorClasses[color]} transition-all`}
-        style={{ width: `${percentage}%` }}
-      />
+    <div className="progress-container">
+      <div className={progressBarClasses} style={{ width: `${percentage}%` }} />
     </div>
   );
 };

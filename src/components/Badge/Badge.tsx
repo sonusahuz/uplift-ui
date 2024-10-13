@@ -1,28 +1,50 @@
 import React from 'react';
 import './Badge.css'; // Import the CSS file
 
-type BadgeProps = {
-  variant?:
-    | 'default'
-    | 'primary'
-    | 'secondary'
-    | 'destructive'
-    | 'outline'
-    | string;
-  size?: 'default' | 'small' | 'medium' | 'large' | string; // Size options
+type BadgeSize = 'small' | 'medium' | 'large';
+type BadgeVariant =
+  | 'default'
+  | 'primary'
+  | 'secondary'
+  | 'destructive'
+  | 'outline';
+
+type BadgeProps = React.HTMLAttributes<HTMLSpanElement> & {
   children: React.ReactNode;
-  type?: 'rounded' | 'circle' | string;
+  size?: BadgeSize;
+  variant?: BadgeVariant;
 };
 
 const Badge: React.FC<BadgeProps> = ({
-  variant = 'default',
-  size = 'default',
   children,
-  type = 'circle',
+  size = 'medium',
+  variant = 'default',
+  ...rest
 }) => {
-  const badgeClasses = `badge ${variant} ${size} ${type}`;
+  const getBadgeClasses = () => {
+    const baseClasses = 'badge font-medium';
+    const sizeClasses: Record<BadgeSize, string> = {
+      small: 'badge--small',
+      medium: 'badge--medium',
+      large: 'badge--large',
+    };
 
-  return <span className={badgeClasses}>{children}</span>;
+    const variantClasses: Record<BadgeVariant, string> = {
+      default: 'badge--default',
+      primary: 'badge--primary',
+      secondary: 'badge--secondary',
+      destructive: 'badge--destructive',
+      outline: 'badge--outline',
+    };
+
+    return `${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]}`;
+  };
+
+  return (
+    <span className={getBadgeClasses()} {...rest}>
+      {children}
+    </span>
+  );
 };
 
 export default Badge;

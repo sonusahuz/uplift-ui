@@ -1,5 +1,7 @@
-import { Button } from 'uplift-ui';
-import NextPrevButton from '../ui/NextPrevButton';
+import { ButtonCode } from '../ui/Code';
+import { PropTable } from '../ui';
+import { Button } from '../components';
+
 const variants = [
   {
     id: 1,
@@ -26,6 +28,41 @@ const variants = [
     size: 'large',
   },
 ];
+
+const buttonPropsData = [
+  {
+    prop: 'variant',
+    type: "'default' | 'primary' | 'secondary' | 'destructive' | 'outline'",
+    description: 'Defines the visual style of the button.',
+  },
+  {
+    prop: 'size',
+    type: "'default' | 'sm' | 'lg'",
+    description: 'Specifies the size of the button.',
+  },
+  {
+    prop: 'children',
+    type: 'React.ReactNode',
+    description: 'The content inside the button.',
+  },
+  {
+    prop: 'onClick',
+    type: '() => void',
+    description: 'Function to call when the button is clicked.',
+  },
+  {
+    prop: 'width',
+    type: 'string',
+    description: 'Custom width for the button.',
+  },
+];
+
+type ButtonVariant =
+  | 'primary'
+  | 'secondary'
+  | 'destructive'
+  | 'outline'
+  | 'link';
 const ButtonDemo = () => {
   return (
     <div className="p-4">
@@ -34,7 +71,7 @@ const ButtonDemo = () => {
 
       {/* Component Description */}
       <section className="mb-8">
-        <p className="mb-4 text-lg">
+        <p className="mb-4">
           The <strong>Button</strong> component is used to trigger actions and
           interactions. It supports different variants and sizes.
         </p>
@@ -47,7 +84,9 @@ const ButtonDemo = () => {
           <div className="mb-4" key={item.id}>
             <h3 className="mb-2 text-xl font-semibold">{item.title}</h3>
             <div className="flex items-center justify-center p-6 mx-auto border rounded">
-              <Button variant={item.variant}>{item.title}</Button>
+              <Button variant={item.variant as ButtonVariant}>
+                {item.title}
+              </Button>
             </div>
           </div>
         ))}
@@ -94,91 +133,15 @@ const ButtonDemo = () => {
         </p>
 
         {/* Responsive Code Block */}
-        <div className="p-4 overflow-x-auto bg-gray-100 rounded-md">
-          <pre className="whitespace-pre">
-            <code>
-              {`import React from 'react';
-import { Button } from 'uplift-ui';
-
-const MyComponent = () => (
-  <div>
-    <Button variant="primary" size="default">Submit</Button>
-    <Button variant="secondary" size="sm">Cancel</Button>
-  </div>
-);
-
-export default MyComponent;
-`}
-            </code>
-          </pre>
+        <div>
+          <ButtonCode />
         </div>
       </section>
 
       {/* Props Table */}
       <section className="mb-8">
-        <h2 className="mb-4 text-2xl font-semibold">Props</h2>
-
-        {/* Responsive Table */}
-        <div className="overflow-x-auto">
-          <table className="w-full border border-gray-300 table-auto">
-            <thead>
-              <tr>
-                <th className="px-4 py-2 border">Prop</th>
-                <th className="px-4 py-2 border">Type</th>
-                <th className="px-4 py-2 border">Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td className="px-4 py-2 border">variant</td>
-                <td className="px-4 py-2 border">
-                  'default' | 'primary' | 'secondary' | 'destructive' |
-                  'outline'
-                </td>
-                <td className="px-4 py-2 border">
-                  Defines the visual style of the button.
-                </td>
-              </tr>
-              <tr>
-                <td className="px-4 py-2 border">size</td>
-                <td className="px-4 py-2 border">'default' | 'sm' | 'lg'</td>
-                <td className="px-4 py-2 border">
-                  Specifies the size of the button.
-                </td>
-              </tr>
-              <tr>
-                <td className="px-4 py-2 border">children</td>
-                <td className="px-4 py-2 border">React.ReactNode</td>
-                <td className="px-4 py-2 border">
-                  The content inside the button.
-                </td>
-              </tr>
-              <tr>
-                <td className="px-4 py-2 border">onClick</td>
-                <td className="px-4 py-2 border">void</td>
-                <td className="px-4 py-2 border">
-                  Function to call when the button is clicked.
-                </td>
-              </tr>
-              <tr>
-                <td className="px-4 py-2 border">width</td>
-                <td className="px-4 py-2 border">string</td>
-                <td className="px-4 py-2 border">
-                  Custom width for the button.
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <PropTable data={buttonPropsData} />
       </section>
-      <div>
-        <NextPrevButton
-          next="Card"
-          prev="Breadcrumbs"
-          nextPath="card"
-          prevPath="breadcrumbs"
-        />
-      </div>
     </div>
   );
 };

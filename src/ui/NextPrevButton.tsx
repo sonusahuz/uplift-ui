@@ -1,7 +1,5 @@
 import { Link } from 'react-router-dom';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-// import { Button } from 'uplift-ui';
-import Button from '../components/Button/Button';
 
 const NextPrevButton = ({
   next,
@@ -14,26 +12,31 @@ const NextPrevButton = ({
   prevPath: string;
   nextPath: string;
 }) => {
+  const handleLink = () => {
+    window.scrollTo({
+      top: 0,
+    });
+  };
+
   return (
     <div className="flex items-center justify-between">
-      <Link to={`/${prevPath}`}>
-        <Button variant="outline" size="sm">
-          <div className="flex items-center justify-between gap-2 p-1">
-            <ChevronLeft size={18} />        
+      <Link to={prevPath} onClick={handleLink}>
+        <button className="border border-[#666] font-medium h-10 rounded-md px-2 py-2">
+          <div className="flex items-center justify-between gap-1">
+            <ChevronLeft size={18} />
             <span className="text-[15px]">{prev}</span>
           </div>
-        </Button>
+        </button>
       </Link>
-      <Link to={`/${nextPath}`}>
-        <Button variant="outline" size="sm">
-          <div className="flex items-center justify-between gap-2 p-1">
+      <Link to={nextPath} onClick={handleLink}>
+        <button className="border border-[#666] font-medium h-10 rounded-md px-2 py-2">
+          <div className="flex items-center justify-between gap-1">
             <span className="text-[15px]">{next}</span>
-            <ChevronRight size={18} />        
+            <ChevronRight size={18} />
           </div>
-        </Button>
+        </button>
       </Link>
     </div>
-    
   );
 };
 

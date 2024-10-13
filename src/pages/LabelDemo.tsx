@@ -1,7 +1,31 @@
 import React from 'react';
-import NextPrevButton from '../ui/NextPrevButton';
-import { Checkbox, Label } from 'uplift-ui';
+import { LabelCode } from '../ui/Code';
+import { PropTable } from '../ui';
+import { Checkbox, Label } from '../components';
 
+const labelPropsData = [
+  {
+    prop: 'htmlFor',
+    type: 'string',
+    description:
+      'Specifies the id of the input element the label is associated with.',
+  },
+  {
+    prop: 'className',
+    type: 'string',
+    description: 'Additional CSS classes for styling.',
+  },
+  {
+    prop: 'children',
+    type: 'React.ReactNode',
+    description: 'Content to be displayed inside the label.',
+  },
+  {
+    prop: '...props',
+    type: 'React.InputHTMLAttributes<HTMLInputElement>',
+    description: 'All other standard input attributes.',
+  },
+];
 const LabelDemo = () => {
   const [checked, setChecked] = React.useState(false);
   return (
@@ -11,7 +35,7 @@ const LabelDemo = () => {
 
       {/* Component Description */}
       <section className="mb-8">
-        <p className="mb-4 text-lg">
+        <p className="mb-4 ">
           The <strong>Label</strong> component is used to provide descriptions
           for form inputs.
         </p>
@@ -42,42 +66,14 @@ const LabelDemo = () => {
         </p>
 
         {/* Responsive Code Block */}
-        <div className="p-4 overflow-x-auto bg-gray-100 rounded-md">
-          <pre className="whitespace-pre">
-            <code>
-              {`import React from 'react';
-import { Label } from 'uplift-ui';
-
-const MyComponent = () => (
-  <div>
-    <div className="flex items-center space-x-2">
-        <Checkbox
-            checked={checked}
-            id="terms"
-            className="cursor-pointer "
-            onChange={(e) => setChecked(e.target.checked)}
-        />
-        <Label htmlFor="terms" className="cursor-pointer ">Accept terms and conditions</Label>
-    </div>
-  </div>
-);
-
-export default MyComponent;
-`}
-            </code>
-          </pre>
+        <div>
+          <LabelCode />
         </div>
       </section>
 
-      {/* Next and Previous Button Navigation */}
-      <div>
-        <NextPrevButton
-          next="Checkbox"
-          prev="Button"
-          nextPath="checkbox"
-          prevPath="button"
-        />
-      </div>
+      <section className="mb-8">
+        <PropTable data={labelPropsData} />
+      </section>
     </div>
   );
 };

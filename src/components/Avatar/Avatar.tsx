@@ -5,8 +5,8 @@ type AvatarProps = {
   images?: { src: string; alt: string }[]; // Optional array of images
   src?: string; // Single image source
   alt?: string; // Alt text for the image
-  variant?: 'default' | 'circle' | 'square' | 'outline' | string; // Variant options
-  size?: 'default' | 'small' | 'medium' | 'large' | string; // Size options
+  variant?: 'default' | 'circle' | 'square' | 'outline';
+  size?: 'default' | 'small' | 'medium' | 'large';
 };
 
 const Avatar: React.FC<AvatarProps> = ({

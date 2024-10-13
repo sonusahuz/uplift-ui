@@ -1,5 +1,6 @@
-import NextPrevButton from '../ui/NextPrevButton';
-import { Progress } from 'uplift-ui';
+import { ProgressCode } from '../ui/Code';
+import { PropTable } from '../ui';
+import { Progress } from '../components';
 const progressStates = [
   {
     id: 1,
@@ -42,6 +43,29 @@ const colors = [
   { id: 6, title: 'Info', color: 'info' as const },
 ];
 
+const progressProps = [
+  {
+    prop: 'value',
+    type: 'number',
+    description: 'Current progress value.',
+  },
+  {
+    prop: 'max',
+    type: 'number',
+    description: 'Maximum progress value.',
+  },
+  {
+    prop: 'size',
+    type: "'small' | 'medium' | 'large'",
+    description: 'Specifies the size of the progress bar.',
+  },
+  {
+    prop: 'color',
+    type: "'primary' | 'secondary' | 'success' | 'error' | 'warning' | 'info'",
+    description: 'Defines the color variant of the progress bar.',
+  },
+];
+
 const ProgressDemo = () => {
   return (
     <div className="p-4">
@@ -50,7 +74,7 @@ const ProgressDemo = () => {
 
       {/* Component Description */}
       <section className="mb-8">
-        <p className="mb-4 text-lg">
+        <p className="mb-4 ">
           The <strong>Progress</strong> component indicates the completion
           status of a task.
         </p>
@@ -95,64 +119,22 @@ const ProgressDemo = () => {
         ))}
       </section>
 
-      {/* Props Table */}
       <section className="mb-8">
-        <h2 className="mb-4 text-2xl font-semibold">Props</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Usage</h2>
+        <p className="mb-4">
+          Here is an example of how to use the <strong>Progress</strong>{' '}
+          component:
+        </p>
 
-        {/* Responsive Table */}
-        <div className="overflow-x-auto">
-          <table className="w-full border border-gray-300 table-auto">
-            <thead>
-              <tr>
-                <th className="px-4 py-2 border">Prop</th>
-                <th className="px-4 py-2 border">Type</th>
-                <th className="px-4 py-2 border">Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td className="px-4 py-2 border">value</td>
-                <td className="px-4 py-2 border">number</td>
-                <td className="px-4 py-2 border">Current progress value.</td>
-              </tr>
-              <tr>
-                <td className="px-4 py-2 border">max</td>
-                <td className="px-4 py-2 border">number</td>
-                <td className="px-4 py-2 border">Maximum progress value.</td>
-              </tr>
-              <tr>
-                <td className="px-4 py-2 border">size</td>
-                <td className="px-4 py-2 border">
-                  'small' | 'medium' | 'large'
-                </td>
-                <td className="px-4 py-2 border">
-                  Specifies the size of the progress bar.
-                </td>
-              </tr>
-              <tr>
-                <td className="px-4 py-2 border">color</td>
-                <td className="px-4 py-2 border">
-                  'primary' | 'secondary' | 'success' | 'error' | 'warning' |
-                  'info'
-                </td>
-                <td className="px-4 py-2 border">
-                  Defines the color variant of the progress bar.
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <div>
+          <ProgressCode />
         </div>
       </section>
 
-      {/* Next and Previous Button Navigation */}
-      <div>
-        <NextPrevButton
-          next="Label"
-          prev="Checkbox"
-          nextPath="label"
-          prevPath="checkbox"
-        />
-      </div>
+      {/* Props Table */}
+      <section className="mb-8">
+        <PropTable data={progressProps} />
+      </section>
     </div>
   );
 };

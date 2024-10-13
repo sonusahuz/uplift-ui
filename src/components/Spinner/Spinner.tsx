@@ -1,9 +1,12 @@
 import React from 'react';
 import './Spinner.css'; // Importing the CSS file for styles
 
+type SpinnerSize = 'small' | 'medium' | 'large' | 'xlarge';
+type SpinnerColorVariant = 'blue' | 'red' | 'green' | 'gray' | 'purple';
+
 type SpinnerProps = {
-  colorVariant?: 'blue' | 'red' | 'green' | 'gray' | 'purple' | string;
-  size?: 'small' | 'medium' | 'large' | 'xlarge' | string;
+  colorVariant?: SpinnerColorVariant;
+  size?: SpinnerSize;
 };
 
 const Spinner: React.FC<SpinnerProps> = ({

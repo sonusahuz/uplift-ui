@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Checkbox } from 'uplift-ui';
-import NextPrevButton from '../ui/NextPrevButton';
+import { CheckboxCode } from '../ui/Code';
+import { PropTable } from '../ui';
+import { Checkbox } from '../components';
 
 const sizes = [
   {
@@ -53,6 +54,34 @@ const colors = [
   },
 ];
 
+const checkboxPropsData = [
+  {
+    prop: 'checked',
+    type: 'boolean',
+    description: 'Indicates whether the checkbox is checked.',
+  },
+  {
+    prop: 'onChange',
+    type: 'function',
+    description: 'Function to call when the checkbox state changes.',
+  },
+  {
+    prop: 'label',
+    type: 'string',
+    description: 'The label text displayed next to the checkbox.',
+  },
+  {
+    prop: 'size',
+    type: "'small' | 'medium' | 'large'",
+    description: 'Specifies the size of the checkbox.',
+  },
+  {
+    prop: 'color',
+    type: "'primary' | 'secondary' | 'success' | 'error' | 'warning' | 'info'",
+    description: 'Defines the color variant of the checkbox.',
+  },
+];
+
 const CheckboxDemo = () => {
   const [checked, setChecked] = useState(false);
 
@@ -63,7 +92,7 @@ const CheckboxDemo = () => {
 
       {/* Component Description */}
       <section className="mb-8">
-        <p className="mb-4 text-lg">
+        <p className="mb-4 ">
           The <strong>Checkbox</strong> component allows users to select one or
           more options.
         </p>
@@ -77,7 +106,7 @@ const CheckboxDemo = () => {
             <h3 className="mb-2 text-xl font-semibold">{item.title}</h3>
             <div className="flex items-center justify-center p-6 mx-auto border rounded">
               <Checkbox
-                size={item.size}
+                size={item.size as 'small' | 'medium' | 'large'}
                 checked={checked}
                 onChange={(e) => setChecked(e.target.checked)}
                 label={item.title}
@@ -95,7 +124,15 @@ const CheckboxDemo = () => {
             <h3 className="mb-2 text-xl font-semibold">{item.title}</h3>
             <div className="flex items-center justify-center p-6 mx-auto border rounded">
               <Checkbox
-                color={item.color}
+                color={
+                  item.color as
+                    | 'primary'
+                    | 'secondary'
+                    | 'success'
+                    | 'error'
+                    | 'warning'
+                    | 'info'
+                }
                 checked={checked}
                 onChange={(e) => setChecked(e.target.checked)}
                 label={item.title}
@@ -114,101 +151,15 @@ const CheckboxDemo = () => {
         </p>
 
         {/* Responsive Code Block */}
-        <div className="p-4 overflow-x-auto bg-gray-100 rounded-md">
-          <pre className="whitespace-pre">
-            <code>
-              {`import React, { useState } from 'react';
-import { Checkbox } from 'uplift-ui';
-
-const MyComponent = () => {
-  const [isChecked, setIsChecked] = useState(false);
-  return (
-    <Checkbox
-      checked={isChecked}
-      onChange={(e) => setIsChecked(e.target.checked)}
-      label="Agree to terms"
-      color="primary"
-      size="medium"
-    />
-  );
-};
-
-export default MyComponent;
-`}
-            </code>
-          </pre>
+        <div>
+          <CheckboxCode />
         </div>
       </section>
 
       {/* Props Table */}
       <section className="mb-8">
-        <h2 className="mb-4 text-2xl font-semibold">Props</h2>
-
-        {/* Responsive Table */}
-        <div className="overflow-x-auto">
-          <table className="w-full border border-gray-300 table-auto">
-            <thead>
-              <tr>
-                <th className="px-4 py-2 border">Prop</th>
-                <th className="px-4 py-2 border">Type</th>
-                <th className="px-4 py-2 border">Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td className="px-4 py-2 border">checked</td>
-                <td className="px-4 py-2 border">boolean</td>
-                <td className="px-4 py-2 border">
-                  Indicates whether the checkbox is checked.
-                </td>
-              </tr>
-              <tr>
-                <td className="px-4 py-2 border">onChange</td>
-                <td className="px-4 py-2 border">function</td>
-                <td className="px-4 py-2 border">
-                  Function to call when the checkbox state changes.
-                </td>
-              </tr>
-              <tr>
-                <td className="px-4 py-2 border">label</td>
-                <td className="px-4 py-2 border">string</td>
-                <td className="px-4 py-2 border">
-                  The label text displayed next to the checkbox.
-                </td>
-              </tr>
-              <tr>
-                <td className="px-4 py-2 border">size</td>
-                <td className="px-4 py-2 border">
-                  'small' | 'medium' | 'large'
-                </td>
-                <td className="px-4 py-2 border">
-                  Specifies the size of the checkbox.
-                </td>
-              </tr>
-              <tr>
-                <td className="px-4 py-2 border">color</td>
-                <td className="px-4 py-2 border">
-                  'primary' | 'secondary' | 'success' | 'error' | 'warning' |
-                  'info'
-                </td>
-                <td className="px-4 py-2 border">
-                  Defines the color variant of the checkbox.
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <PropTable data={checkboxPropsData} />
       </section>
-
-      {/* Next and Previous Button Navigation */}
-      <div>
-        <NextPrevButton
-          next="Button"
-          prev="Radio Button"
-          nextPath="button"
-          prevPath="radio-button"
-        />
-      </div>
     </div>
   );
 };

@@ -1,5 +1,20 @@
-import NextPrevButton from '../ui/NextPrevButton';
-import { Button, Tooltip } from 'uplift-ui';
+import { TooltipCode } from '../ui/Code';
+import { PropTable } from '../ui';
+import { Button, Tooltip } from '../components';
+
+const tooltipProps = [
+  {
+    prop: 'text',
+    type: 'string',
+    description: 'The text to be displayed in the tooltip.',
+  },
+  {
+    prop: 'children',
+    type: 'React.ReactNode',
+    description: 'The element(s) that will trigger the tooltip on hover.',
+  },
+];
+
 const TooltipDemo = () => {
   return (
     <div className="p-4 ">
@@ -8,7 +23,7 @@ const TooltipDemo = () => {
 
       {/* Component Description */}
       <section className="mb-8">
-        <p className="mb-4 text-lg">
+        <p className="mb-4 ">
           The <strong>Tooltip</strong> component provides additional information
           when hovering over an element.
         </p>
@@ -34,68 +49,15 @@ const TooltipDemo = () => {
         </p>
 
         {/* Responsive Code Block */}
-        <div className="p-4 overflow-x-auto bg-gray-100 rounded-md">
-          <pre className="whitespace-pre">
-            <code>
-              {`import React from 'react';
-import { Tooltip } from 'uplift-ui';
-
-const MyComponent = () => {
-  return (
-    <Tooltip text="This is a tooltip!">
-        <Button>Hover over me</Button>
-    </Tooltip>
-  );
-};
-
-export default MyComponent;
-`}
-            </code>
-          </pre>
+        <div>
+          <TooltipCode />
         </div>
       </section>
 
       {/* Props Table */}
       <section className="mb-8">
-        <h2 className="mb-4 text-2xl font-semibold">Props</h2>
-
-        {/* Responsive Table */}
-        <div className="overflow-x-auto">
-          <table className="w-full border border-gray-300 table-auto">
-            <thead>
-              <tr>
-                <th className="px-4 py-2 border">Prop</th>
-                <th className="px-4 py-2 border">Type</th>
-                <th className="px-4 py-2 border">Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td className="px-4 py-2 border">text</td>
-                <td className="px-4 py-2 border">string</td>
-                <td className="px-4 py-2 border">
-                  The text to be displayed in the tooltip.
-                </td>
-              </tr>
-              <tr>
-                <td className="px-4 py-2 border">children</td>
-                <td className="px-4 py-2 border">React.ReactNode</td>
-                <td className="px-4 py-2 border">
-                  The element(s) that will trigger the tooltip on hover.
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <PropTable data={tooltipProps} />
       </section>
-      <div>
-        <NextPrevButton
-          next="Home"
-          prev="Toast"
-          nextPath="/"
-          prevPath="toast"
-        />
-      </div>
     </div>
   );
 };

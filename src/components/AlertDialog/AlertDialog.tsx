@@ -25,12 +25,10 @@ const AlertDialog: React.FC<AlertDialogProps> = ({
         <h2 className="alert-dialog-title">{title}</h2>
         <p className="alert-dialog-description">{description}</p>
         <div className="alert-dialog-actions">
-          <Button variant="outline" width="400px" onClick={onCancel}>
+          <Button variant="outline" onClick={onCancel}>
             Cancel
           </Button>
-          <Button width="400px" onClick={onConfirm}>
-            Confirm
-          </Button>
+          <Button onClick={onConfirm}>Confirm</Button>
         </div>
       </div>
     </div>

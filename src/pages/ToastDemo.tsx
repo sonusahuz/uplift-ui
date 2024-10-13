@@ -1,6 +1,20 @@
 import { useState } from 'react';
-import { Toast, Button } from 'uplift-ui';
-import NextPrevButton from '../ui/NextPrevButton';
+import { ToastCode } from '../ui/Code';
+import { PropTable } from '../ui';
+import { Button, Toast } from '../components';
+
+const toastProps = [
+  {
+    prop: 'message',
+    type: 'string',
+    description: 'The message to be displayed in the toast.',
+  },
+  {
+    prop: 'onClose',
+    type: 'void',
+    description: 'Function to call when the toast is closed.',
+  },
+];
 
 const ToastDemo = () => {
   const [toastVisible, setToastVisible] = useState(false);
@@ -19,7 +33,7 @@ const ToastDemo = () => {
 
       {/* Component Description */}
       <section className="mb-8">
-        <p className="mb-4 text-lg">
+        <p className="mb-4 ">
           The <strong>Toast</strong> component is used to display brief
           notifications to the user.
         </p>
@@ -48,70 +62,15 @@ const ToastDemo = () => {
         </p>
 
         {/* Responsive Code Block */}
-        <div className="p-4 overflow-x-auto bg-gray-100 rounded-md">
-          <pre className="whitespace-pre">
-            <code>
-              {`import React from 'react';
-import { Toast } from 'uplift-ui';
-
-const MyComponent = () => {
-  const showToast = () => {
-    // Logic to show toast
-  };
-
-  return (
-    <Toast message="Hello, World!" onClose={() => {/* Logic to close toast */}} />
-  );
-};
-
-export default MyComponent;
-`}
-            </code>
-          </pre>
+        <div>
+          <ToastCode />
         </div>
       </section>
 
       {/* Props Table */}
       <section className="mb-8">
-        <h2 className="mb-4 text-2xl font-semibold">Props</h2>
-
-        {/* Responsive Table */}
-        <div className="overflow-x-auto">
-          <table className="w-full border border-gray-300 table-auto">
-            <thead>
-              <tr>
-                <th className="px-4 py-2 border">Prop</th>
-                <th className="px-4 py-2 border">Type</th>
-                <th className="px-4 py-2 border">Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td className="px-4 py-2 border">message</td>
-                <td className="px-4 py-2 border">string</td>
-                <td className="px-4 py-2 border">
-                  The message to be displayed in the toast.
-                </td>
-              </tr>
-              <tr>
-                <td className="px-4 py-2 border">onClose</td>
-                <td className="px-4 py-2 border">void</td>
-                <td className="px-4 py-2 border">
-                  Function to call when the toast is closed.
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <PropTable data={toastProps} />
       </section>
-      <div>
-        <NextPrevButton
-          next="Tooltip"
-          prev="Tabs"
-          nextPath="tooltip"
-          prevPath="tabs"
-        />
-      </div>
     </div>
   );
 };

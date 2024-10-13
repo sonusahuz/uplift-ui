@@ -1,5 +1,6 @@
-import NextPrevButton from '../ui/NextPrevButton';
-import { Spinner } from 'uplift-ui';
+import { SpinnerCode } from '../ui/Code';
+import { PropTable } from '../ui';
+import { Spinner } from '../components';
 
 const spinner = [
   {
@@ -38,6 +39,21 @@ const spinner = [
     sizeTitle: 'Extra Large',
   },
 ];
+
+const spinnerProps = [
+  {
+    prop: 'colorVariant',
+    type: 'string',
+    description:
+      'The color of the spinner. Options: blue, red, green, gray, yellow, purple, pink.',
+  },
+  {
+    prop: 'size',
+    type: 'string',
+    description:
+      'The size of the spinner. Options: small, medium, large, xlarge.',
+  },
+];
 const SpinnerDemo = () => {
   return (
     <div className="p-4 ">
@@ -46,7 +62,7 @@ const SpinnerDemo = () => {
 
       {/* Component Description */}
       <section className="mb-8">
-        <p className="mb-4 text-lg">
+        <p className="mb-4">
           The <strong>Spinner</strong> component is used to indicate loading
           states in your application.
         </p>
@@ -60,7 +76,11 @@ const SpinnerDemo = () => {
           <div className="mb-4">
             <h3 className="mb-2 text-xl font-semibold">{item.title}</h3>
             <div className="flex items-center justify-center p-6 mx-auto border rounded">
-              <Spinner colorVariant={item.variant} />
+              <Spinner
+                colorVariant={
+                  item.variant as 'blue' | 'red' | 'green' | 'gray' | 'purple'
+                }
+              />
             </div>
           </div>
         ))}
@@ -72,7 +92,12 @@ const SpinnerDemo = () => {
           <div className="mb-4">
             <h3 className="mb-2 text-xl font-semibold">{item.sizeTitle}</h3>
             <div className="flex items-center justify-center p-6 mx-auto border rounded">
-              <Spinner size={item.size} colorVariant={item.variant} />
+              <Spinner
+                size={item.size as 'small' | 'medium' | 'large' | 'xlarge'}
+                colorVariant={
+                  item.variant as 'blue' | 'red' | 'green' | 'gray' | 'purple'
+                }
+              />
             </div>
           </div>
         ))}
@@ -87,73 +112,15 @@ const SpinnerDemo = () => {
         </p>
 
         {/* Responsive Code Block */}
-        <div className="p-4 overflow-x-auto bg-gray-100 rounded-md">
-          <pre className="whitespace-pre">
-            <code>
-              {`import React from 'react';
-import { Spinner } from 'uplift-ui';
-
-const MyComponent = () => {
-  return (
-    <div>
-      <Spinner colorVariant="blue" size="small" />
-      <Spinner colorVariant="red" size="medium" />
-      <Spinner colorVariant="purple" size="large" />
-      <Spinner colorVariant="green" size="xlarge" />
-    </div>
-  );
-};
-
-export default MyComponent;
-`}
-            </code>
-          </pre>
+        <div>
+          <SpinnerCode />
         </div>
       </section>
 
       {/* Props Table */}
       <section className="mb-8">
-        <h2 className="mb-4 text-2xl font-semibold">Props</h2>
-
-        {/* Responsive Table */}
-        <div className="overflow-x-auto">
-          <table className="w-full border border-gray-300 table-auto">
-            <thead>
-              <tr>
-                <th className="px-4 py-2 border">Prop</th>
-                <th className="px-4 py-2 border">Type</th>
-                <th className="px-4 py-2 border">Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td className="px-4 py-2 border">colorVariant</td>
-                <td className="px-4 py-2 border">string</td>
-                <td className="px-4 py-2 border">
-                  The color of the spinner. Options: blue, red, green, gray,
-                  yellow, purple, pink.
-                </td>
-              </tr>
-              <tr>
-                <td className="px-4 py-2 border">size</td>
-                <td className="px-4 py-2 border">string</td>
-                <td className="px-4 py-2 border">
-                  The size of the spinner. Options: small, medium, large,
-                  xlarge.
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <PropTable data={spinnerProps} />
       </section>
-      <div>
-        <NextPrevButton
-          next="Tabs"
-          prev="Marquee"
-          nextPath="tabs"
-          prevPath="marquee"
-        />
-      </div>
     </div>
   );
 };

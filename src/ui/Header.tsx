@@ -1,9 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Github, Menu, Search } from 'lucide-react';
 import { useState } from 'react';
-// import { Modal, Input, Drawer } from 'uplift-ui';
-import Input from '../components/Input/Input';
-import Drawer from '../components/Drawer/Drawer';
+import {Input, Drawer} from "../components"
 import { items } from '../utils/data';
 import SideBar from './SideBar';
 import Dialog from '../components/Dialog';
@@ -19,7 +17,7 @@ const Header = () => {
 
   return (
     <div>
-      <header className="flex items-center justify-between px-4 py-4">
+      <header className="flex items-center justify-between p-3">
         <Link className="flex items-center justify-center" to="/">
           <span className="flex items-center justify-start gap-2 text-xl font-medium">
             <svg
@@ -41,7 +39,7 @@ const Header = () => {
               type="text"
               placeholder="Search..."
               onClick={() => setOpen(true)}
-              className="px-4 py-1 border rounded-lg cursor-pointer hover:bg-gray-100 w-72"
+              className="px-4 py-1 border rounded-lg cursor-pointer w-72"
               onChange={(e) => setQuery(e.target.value)}
               value={query}
             />
@@ -53,7 +51,9 @@ const Header = () => {
               className="cursor-pointer md:hidden"
               onClick={() => setOpen(true)}
             />
-            <Github size={23} strokeWidth={1.5} className="cursor-pointer " />
+            <Link to={'https://github.com/sonusahuz/uplift-ui'}>
+              <Github size={23} strokeWidth={1.5} className="cursor-pointer " />
+            </Link>
             <Menu
               className="cursor-pointer md:hidden "
               size={23}
@@ -112,7 +112,7 @@ const Header = () => {
         isOpen={drawerOpen}
         title="Uplift UI"
         setIsOpen={setDrawerOpen}
-        width="220px"
+        width="230px"
         content={<SideBar />}
       />
     </div>

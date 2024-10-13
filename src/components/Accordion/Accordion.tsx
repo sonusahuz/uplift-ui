@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import './Accordion.css';
 import { ChevronDown, ChevronUp } from 'lucide-react';
-type AccordionVariant = 'default' | 'detailed' | 'underline' | string;
+
+type AccordionVariant = 'default' | 'detailed' | 'underline';
 
 type AccordionProps = {
   title: string;
   content: React.ReactNode;
-  variant?: AccordionVariant | string;
+  variant?: AccordionVariant;
 };
 
 const Accordion: React.FC<AccordionProps> = ({

@@ -1,5 +1,6 @@
-import { Badge } from 'uplift-ui';
-import NextPrevButton from '../ui/NextPrevButton';
+import { BadgeCode } from '../ui/Code';
+import { PropTable } from '../ui';
+import { Badge } from '../components';
 const variants = [
   {
     id: 1,
@@ -26,6 +27,30 @@ const variants = [
     size: 'large',
   },
 ];
+
+const badgePropsData = [
+  {
+    prop: 'variant',
+    type: "'default' | 'primary' | 'secondary' | 'destructive' | 'outline'",
+    description: 'Defines the visual style of the badge.',
+  },
+  {
+    prop: 'size',
+    type: "'default' | 'sm' | 'lg'",
+    description: 'Specifies the size of the badge.',
+  },
+  {
+    prop: 'children',
+    type: 'React.ReactNode',
+    description: 'The content inside the badge.',
+  },
+  {
+    prop: 'type',
+    type: "'circle' | 'rounded'",
+    description: 'Specifies the type of the badge.',
+  },
+];
+
 const BadgeDemo = () => {
   return (
     <div className="p-4">
@@ -33,7 +58,7 @@ const BadgeDemo = () => {
       <h1 className="mb-2 text-3xl font-bold">Badge </h1>
       {/* Component Description */}
       <section className="mb-8">
-        <p className="mb-4 text-lg">
+        <p className="mb-4 ">
           The <strong>Badge</strong> component is used to highlight or label
           important items. It supports different variants and sizes.
         </p>
@@ -47,7 +72,18 @@ const BadgeDemo = () => {
           <div className="mb-4">
             <h3 className="mb-2 text-xl font-semibold">{item.title}</h3>
             <div className="flex items-center justify-center p-6 mx-auto border rounded">
-              <Badge variant={item.variant}>{item.title}</Badge>
+              <Badge
+                variant={
+                  item.variant as
+                    | 'default'
+                    | 'primary'
+                    | 'secondary'
+                    | 'destructive'
+                    | 'outline'
+                }
+              >
+                {item.title}
+              </Badge>
             </div>
           </div>
         ))}
@@ -86,29 +122,6 @@ const BadgeDemo = () => {
         </div>
       </section>
 
-      <section className="mt-10 mb-8 space-y-6">
-        <h2 className="mb-4 text-2xl font-semibold">Type</h2>
-        {/* Success Alert */}
-        <div className="mb-4">
-          <h3 className="mb-2 text-xl font-semibold">Circle</h3>
-          <div className="flex items-center justify-center p-6 mx-auto border rounded">
-            <Badge variant="primary" type="circle">
-              Primary
-            </Badge>
-          </div>
-        </div>
-
-        {/* Error Alert */}
-        <div className="mb-4">
-          <h3 className="mb-2 text-xl font-semibold">Rounded</h3>
-          <div className="flex items-center justify-center p-6 mx-auto border rounded">
-            <Badge variant="secondary" type="rounded">
-              Secondary
-            </Badge>
-          </div>
-        </div>
-      </section>
-
       {/* Usage Example */}
       <section className="mb-8">
         <h2 className="mb-4 text-2xl font-semibold">Usage</h2>
@@ -117,87 +130,14 @@ const BadgeDemo = () => {
         </p>
 
         {/* Responsive Code Block */}
-        <div className="p-4 overflow-x-auto bg-gray-100 rounded-md">
-          <pre className="whitespace-pre">
-            <code>
-              {`import React from 'react';
-import { Badge } from 'uplift-ui';
-
-const MyComponent = () => (
-  <div>
-    <Badge variant="primary" size="default">Primary</Badge>
-    <Badge variant="secondary" size="small">Secondary</Badge>
-    <Badge variant="destructive" size="medium">Destructive</Badge>
-    <Badge variant="destructive" size="large">Destructive</Badge>
-    <Badge variant="outline" size="default">Outline</Badge>
-    <Badge variant="primary" size="default" type="rounded">Primary</Badge>
-  </div>
-);
-
-export default MyComponent;
-`}
-            </code>
-          </pre>
+        <div>
+          <BadgeCode />
         </div>
       </section>
       {/* Props Table */}
       <section className="mb-8">
-        <h2 className="mb-4 text-2xl font-semibold">Props</h2>
-
-        {/* Responsive Table */}
-        <div className="overflow-x-auto">
-          <table className="w-full border border-gray-300 table-auto">
-            <thead>
-              <tr>
-                <th className="px-4 py-2 border">Prop</th>
-                <th className="px-4 py-2 border">Type</th>
-                <th className="px-4 py-2 border">Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td className="px-4 py-2 border">variant</td>
-                <td className="px-4 py-2 border">
-                  'default' | 'primary' | 'secondary' | 'destructive' |
-                  'outline'
-                </td>
-                <td className="px-4 py-2 border">
-                  Defines the visual style of the badge.
-                </td>
-              </tr>
-              <tr>
-                <td className="px-4 py-2 border">size</td>
-                <td className="px-4 py-2 border">'default' | 'sm' | 'lg'</td>
-                <td className="px-4 py-2 border">
-                  Specifies the size of the badge.
-                </td>
-              </tr>
-              <tr>
-                <td className="px-4 py-2 border">children</td>
-                <td className="px-4 py-2 border">React.ReactNode</td>
-                <td className="px-4 py-2 border">
-                  The content inside the badge.
-                </td>
-              </tr>
-              <tr>
-                <td className="px-4 py-2 border">type</td>
-                <td className="px-4 py-2 border">circle | rounded</td>
-                <td className="px-4 py-2 border">
-                  Specifies the type of the badge.
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <PropTable data={badgePropsData} />
       </section>
-      <div>
-        <NextPrevButton
-          next="Breadcrumbs"
-          prev="Avatar"
-          nextPath="breadcrumbs"
-          prevPath="avatar"
-        />
-      </div>
     </div>
   );
 };

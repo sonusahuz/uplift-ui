@@ -1,5 +1,39 @@
-import { Card, Button, Input } from 'uplift-ui';
-import NextPrevButton from '../ui/NextPrevButton';
+import { CardCode } from '../ui/Code';
+import { PropTable } from '../ui';
+import { Button, Card, Input } from '../components';
+
+const cardPropsData = [
+  {
+    prop: 'children',
+    type: 'React.ReactNode',
+    description: 'Content to be displayed inside the card.',
+  },
+  {
+    prop: 'Header',
+    type: '{ children: React.ReactNode }',
+    description: 'Subcomponent for card header.',
+  },
+  {
+    prop: 'Title',
+    type: '{ children: React.ReactNode }',
+    description: 'Subcomponent for card title.',
+  },
+  {
+    prop: 'Description',
+    type: '{ children: React.ReactNode }',
+    description: 'Subcomponent for card description.',
+  },
+  {
+    prop: 'Content',
+    type: '{ children: React.ReactNode }',
+    description: 'Subcomponent for card content.',
+  },
+  {
+    prop: 'Footer',
+    type: '{ children: React.ReactNode }',
+    description: 'Subcomponent for card footer.',
+  },
+];
 
 const CardDemo = () => {
   return (
@@ -9,7 +43,7 @@ const CardDemo = () => {
 
       {/* Component Description */}
       <section className="mb-8">
-        <p className="mb-4 text-lg">
+        <p className="mb-4 ">
           The <strong>Card</strong> component is a versatile container that can
           hold different types of content and actions about a single subject. It
           can include headers, titles, descriptions, and footers, making it
@@ -55,106 +89,15 @@ const CardDemo = () => {
         </p>
 
         {/* Responsive Code Block */}
-        <div className="p-4 overflow-x-auto bg-gray-100 rounded-md">
-          <pre className="whitespace-pre">
-            <code>
-              {`import React from 'react';
-import { Card } from 'uplift-ui';
-
-const MyComponent = () => {
-  return (
-    <Card>
-      <Card.Header>
-        <Card.Title>My Card Title</Card.Title>
-      </Card.Header>
-      <Card.Content>
-        <Card.Description>
-          This is an example description of my card content.
-        </Card.Description>
-      </Card.Content>
-      <Card.Footer>
-        <button className="btn">Learn More</button>
-      </Card.Footer>
-    </Card>
-  );
-};
-
-export default MyComponent;
-`}
-            </code>
-          </pre>
+        <div>
+          <CardCode />
         </div>
       </section>
 
       {/* Props Table */}
       <section className="mb-8">
-        <h2 className="mb-4 text-2xl font-semibold">Props</h2>
-
-        {/* Responsive Table */}
-        <div className="overflow-x-auto">
-          <table className="w-full border border-gray-300 table-auto">
-            <thead>
-              <tr>
-                <th className="px-4 py-2 border">Prop</th>
-                <th className="px-4 py-2 border">Type</th>
-                <th className="px-4 py-2 border">Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td className="px-4 py-2 border">children</td>
-                <td className="px-4 py-2 border">React.ReactNode</td>
-                <td className="px-4 py-2 border">
-                  Content to be displayed inside the card.
-                </td>
-              </tr>
-              <tr>
-                <td className="px-4 py-2 border">Header</td>
-                <td className="px-4 py-2 border">{`{ children: React.ReactNode }`}</td>
-                <td className="px-4 py-2 border">
-                  Subcomponent for card header.
-                </td>
-              </tr>
-              <tr>
-                <td className="px-4 py-2 border">Title</td>
-                <td className="px-4 py-2 border">{`{ children: React.ReactNode }`}</td>
-                <td className="px-4 py-2 border">
-                  Subcomponent for card title.
-                </td>
-              </tr>
-              <tr>
-                <td className="px-4 py-2 border">Description</td>
-                <td className="px-4 py-2 border">{`{ children: React.ReactNode }`}</td>
-                <td className="px-4 py-2 border">
-                  Subcomponent for card description.
-                </td>
-              </tr>
-              <tr>
-                <td className="px-4 py-2 border">Content</td>
-                <td className="px-4 py-2 border">{`{ children: React.ReactNode }`}</td>
-                <td className="px-4 py-2 border">
-                  Subcomponent for card content.
-                </td>
-              </tr>
-              <tr>
-                <td className="px-4 py-2 border">Footer</td>
-                <td className="px-4 py-2 border">{`{ children: React.ReactNode }`}</td>
-                <td className="px-4 py-2 border">
-                  Subcomponent for card footer.
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <PropTable data={cardPropsData} />
       </section>
-      <div>
-        <NextPrevButton
-          next="Carsousel"
-          prev="Button"
-          nextPath="carousel"
-          prevPath="button"
-        />
-      </div>
     </div>
   );
 };

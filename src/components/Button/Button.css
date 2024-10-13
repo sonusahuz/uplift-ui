@@ -1,76 +1,58 @@
+/* Button.css */
+
+/* Base button styles */
 .button {
-  border-radius: 5px;
-  font-weight: 400;
-  outline: none;
-  transition: background-color 0.2s ease-in-out;
-  border: none;
-  cursor: pointer;
-  font-size: 14px;
+  border-radius: 0.375rem; /* Rounded corners */
+  font-size: 0.875rem; /* Default text size */
+  display: inline-block; /* For proper spacing */
+  cursor: pointer; /* Pointer on hover */
+  border: 0;
 }
 
-.button.default {
-  background-color: black; /* gray-300 */
-  color: #fff; /* black */
+/* Size variants */
+.button--small {
+  height: 2.25rem; /* Height for small */
+  padding: 0 0.75rem; /* Padding for small */
 }
 
-.button.primary {
-  background-color: #3b82f6; /* blue-500 */
-  color: #fff;
+.button--medium {
+  height: 2.5rem; /* Height for medium */
+  padding: 0.5rem 1rem; /* Padding for medium */
 }
 
-.button.primary:hover {
-  background-color: #2563eb; /* blue-600 */
+.button--large {
+  height: 2.75rem; /* Height for large */
+  padding: 0.5rem 1.5rem; /* Padding for large */
 }
 
-.button.secondary {
-  background-color: rgb(210, 210, 210); /* green-500 */
-  color: black;
+/* Variant styles */
+.button--primary {
+  background-color: #3b82f6; /* Blue background */
+  color: white; /* White text */
 }
 
-.button.secondary:hover {
-  background-color: rgb(101, 99, 99); /* green-500 */
+.button--secondary {
+  background-color: #4b5563; /* Gray background */
+  color: white; /* White text */
 }
 
-.button.destructive {
-  background-color: #ef4444; /* red-500 */
-  color: #fff;
+.button--destructive {
+  background-color: #ef4444; /* Red background */
+  color: white; /* White text */
 }
 
-.button.destructive:hover {
-  background-color: #dc2626; /* red-600 */
+.button--outline {
+  border: 1px solid #4b5563; /* Gray border */
+  color: black; /* Black text */
+  background-color: transparent; /* No background */
 }
 
-.button.outline {
-  background-color: transparent;
-  border: none;
-  color: #000; /* blue-500 */
+.button--link {
+  background-color: transparent; /* No background */
+  color: #3b82f6; /* Blue text */
 }
 
-.button.default,
-.button.small {
-  height: 2.5rem; /* h-10 */
-  padding: 0 1rem; /* px-4 */
-}
-
-.button.small {
-  height: 2.25rem; /* h-9 */
-  padding: 0 0.75rem; /* px-3 */
-}
-
-.button.medium {
-  height: 2.5rem; /* h-10 */
-  padding: 0 1rem; /* px-4 */
-}
-
-.button.large {
-  height: 2.75rem; /* h-11 */
-  padding: 0 2rem; /* px-8 */
-}
-
-.button.icon {
-  height: 2.5rem; /* h-10 */
-  width: 2.5rem; /* w-10 */
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Optional width style */
+.button--width- {
+  width: var(--button-width); /* Custom width */
 }

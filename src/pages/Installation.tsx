@@ -1,20 +1,18 @@
-import NextPrevButton from '../ui/NextPrevButton';
-
 const Installation = () => {
   return (
     <div>
       <div className="p-4 ">
         <h1 className="mb-2 text-3xl font-bold">Installation 🎉</h1>
         <section className="mb-8">
-          <p className="mb-4 text-lg">
-            Follow the steps below to install Reactra UI in your React project:
+          <p className="mb-4 ">
+            Follow the steps below to install Uplift UI in your React project:
           </p>
         </section>
         <section className="mb-8">
           <h2 className="mb-2 text-2xl font-semibold">
             Step 1: Create a React Application
           </h2>
-          <p className="mb-4 text-lg">
+          <p className="mb-4 ">
             If you don't have a React application, create one using Create React
             App:
           </p>
@@ -30,8 +28,8 @@ const Installation = () => {
           <h2 className="mb-2 text-2xl font-semibold">
             Step 2: Install Uplift UI
           </h2>
-          <p className="mb-4 text-lg">
-            Use npm or yarn to install the Reactra UI package:
+          <p className="mb-4 ">
+            Use npm or yarn to install the Uplift UI package:
           </p>
           <pre className="p-4 mb-4 bg-gray-100 rounded">
             <code>
@@ -47,7 +45,7 @@ const Installation = () => {
           <h2 className="mb-2 text-2xl font-semibold">
             Step 3: Import Components
           </h2>
-          <p className="mb-4 text-lg">
+          <p className="mb-4">
             Import the components you want to use in your application. For
             example:
           </p>
@@ -79,21 +77,13 @@ export default MyComponent;
           <h2 className="mb-2 text-2xl font-semibold">
             Step 4: Run Your Application
           </h2>
-          <p className="mb-4 text-lg">
+          <p className="mb-4 ">
             After setting everything up, run your application:
           </p>
           <pre className="p-4 mb-4 bg-gray-100 rounded">
             <code>npm start</code>
           </pre>
         </section>
-      </div>
-      <div className="px-4 pb-6">
-        <NextPrevButton
-          next="Accordion"
-          prev="Introduction"
-          nextPath="accordion"
-          prevPath="introduction"
-        />
       </div>
     </div>
   );

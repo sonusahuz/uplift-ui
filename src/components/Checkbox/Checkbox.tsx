@@ -1,15 +1,14 @@
 import React from 'react';
 import './Checkbox.css'; // Import the CSS for styling
 
-export type Size = 'small' | 'medium' | 'large' | string;
+export type Size = 'small' | 'medium' | 'large';
 export type Color =
   | 'primary'
   | 'secondary'
   | 'success'
   | 'error'
   | 'warning'
-  | 'info'
-  | string;
+  | 'info';
 
 interface CheckboxProps extends React.HTMLAttributes<HTMLInputElement> {
   checked: boolean;
